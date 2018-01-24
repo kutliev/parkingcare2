@@ -1,0 +1,44 @@
+<nav class="breadcrumb" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="/"><i class="fas fa-home"></i></a></li>
+    <li><a routerLink="/spots/{{ selectedSpot.slug}}">Spot {{ selectedSpot.title}}</a></li>
+    <li class="is-active"><a>{{ selectedEvent.slug == '' ? 'Create' : 'Edit' }} event</a></li>
+  </ul>
+</nav>
+
+<div class="field is-horizontal">
+  <label class="field-label">Type</label>
+  <div class="field-body">
+  	<div class="select">
+		<select [(ngModel)] = "selectedEvent.type" (ngModelChange)="setEventTitle()">
+			<option *ngFor="let eventType of eventTypes" [value]="eventType">{{ eventType }}</option>
+		</select>  		
+    </div>
+  </div>
+</div>
+
+<div class="field is-horizontal">
+  <label class="field-label">Title</label>
+  <div class="field-body">
+	<input class="input" type="text" [(ngModel)] = "selectedEvent.title">
+  </div>
+</div>
+
+<div class="field is-horizontal">
+  <label class="field-label">Remarks</label>
+  <div class="field-body">
+	<input class="input" type="text" [(ngModel)] = "selectedEvent.content">
+  </div>
+</div>
+
+<div class="field is-horizontal">
+  <label class="field-label"></label>
+  <div class="field-body">
+  	<div class="field is-grouped">
+  		<p class="control">
+		<button class="button is-primary" (click)="saveEvent()">Save</button>
+		<a class="button"  routerLink="/spots/{{ selectedSpot.slug}}">Cancel</a>
+		</p>
+	</div>
+  </div>
+</div>

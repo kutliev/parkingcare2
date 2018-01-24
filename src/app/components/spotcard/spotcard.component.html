@@ -1,0 +1,61 @@
+<nav class="breadcrumb" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="/"><i class="fas fa-home"></i></a></li>
+    <li class="is-active"><a>Spot {{ selectedSpot?.title}}</a></li>
+  </ul>
+</nav>
+
+<div class="columns">
+	<div class="column">
+		<h2 class="subtitle"><i class="fas fa-info-circle"></i> Info</h2>
+		<hr/>
+
+		<table class="table is-fullwidth">
+			<tr>
+				<td class="has-color-grey">Title</td>
+				<td [innerHTML]="selectedSpot?.title"></td>
+			</tr>
+			<tr>
+				<td class="has-color-grey">Floor</td>
+				<td [innerHTML]="selectedSpot?.floor"></td>
+			</tr>
+			<tr>
+				<td class="has-color-grey">Type</td>
+				<td [innerHTML] = "selectedSpot?.type"></td>
+			</tr>
+			<tr *ngIf="selectedSpot?.customer">
+				<td class="has-color-grey">Customer</td>
+				<td [innerHTML] = "selectedSpot?.customer"></td>
+			</tr>
+			<tr>
+				<td class="has-color-grey">Description</td>
+				<td [innerHTML] = "selectedSpot?.content"></td>
+			</tr>
+		</table>
+		<br/>
+		<div class="form-grouped">
+			<a class="button is-primary" routerLink="/spots/{{ selectedSpot.slug }}/addevent">Add event</a>
+			<a class="button" routerLink="/spots/{{ selectedSpot.slug}}/edit">Edit spot</a>
+			<button class="button is-danger" *ngIf="canBeDeleted(); else deleteWarning" (click)="remove(selectedSpot)">Delete</button>
+		</div>
+		<ng-template #deleteWarning>
+			<p>Spot with events cannot be deleted</p>
+		</ng-template>
+
+	</div>
+	<div class="column">
+		<h2 class="subtitle"><i class="fas fa-dollar-sign"></i> Payments</h2>
+		<hr/>
+		<app-eventlist [spotevents] = "selectedSpot.payments" [spot] = "selectedSpot"></app-eventlist>
+	</div>
+	<div class="column">
+		<h2 class="subtitle"><i class="fas fa-cog"></i> Maintenances</h2>
+		<hr/>
+		<app-eventlist [spotevents] = "selectedSpot.maintenances" [spot] = "selectedSpot"></app-eventlist>
+	</div>
+	<div class="column">
+		<h2 class="subtitle"><i class="far fa-sun"></i> Cleanings</h2>
+		<hr/>
+		<app-eventlist [spotevents] = "selectedSpot.cleanings" [spot] = "selectedSpot"></app-eventlist>
+	</div>
+</div>

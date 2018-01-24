@@ -1,0 +1,65 @@
+<nav class="breadcrumb" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="/"><i class="fas fa-home"></i></a></li>
+    <li class="is-active" *ngIf="selectedSpot.slug == ''; else editHeader"><a>New spot</a></li>
+    <ng-template #editHeader>
+    	<li><a routerLink="/spots/{{ selectedSpot.slug}}">Spot {{ selectedSpot.title}}</a></li>
+    	<li class="is-active"><a>Edit</a></li>
+	</ng-template>
+  </ul>
+</nav>
+
+<div class="field is-horizontal">
+  <label class="field-label">Title</label>
+  <div class="field-body">
+	<input class="input" type="text" [(ngModel)] = "selectedSpot.title">
+  </div>
+</div>
+
+<div class="field is-horizontal">
+  <label class="field-label">Floor</label>
+  <div class="field-body">
+  	<div class="select">
+		<select [(ngModel)] = "selectedSpot.floor" class="form-control">
+			<option *ngFor="let floor of spotFloors" [value]="floor">{{ floor }}</option>
+		</select>  		
+    </div>
+  </div>
+</div>
+
+<div class="field is-horizontal">
+  <label class="field-label">Type</label>
+  <div class="field-body">
+  	<div class="select">
+		<select [(ngModel)] = "selectedSpot.type" class="form-control">
+			<option *ngFor="let spotType of spotTypes" [value]="spotType">{{ spotType }}</option>
+		</select>		
+    </div>
+  </div>
+</div>
+
+<div *ngIf="selectedSpot.type != 'Vacant'" class="field is-horizontal">
+  <label class="field-label">Customer</label>
+  <div class="field-body">
+	<input class="input" type="text" [(ngModel)] = "selectedSpot.customer">
+  </div>
+</div>
+
+<div class="field is-horizontal">
+  <label class="field-label">Remarks</label>
+  <div class="field-body">
+	<input class="input" type="text" [(ngModel)] = "selectedSpot.content">
+  </div>
+</div>
+
+<div class="field is-horizontal">
+  <label class="field-label"></label>
+  <div class="field-body">
+  	<div class="field is-grouped">
+  		<p class="control">
+		<button class="button is-primary" (click)="saveSpot(selectedSpot.slug)">Save</button>
+		<a class="button" routerLink="/spots/{{ selectedSpot.slug}}">Cancel</a>
+		</p>
+	</div>
+  </div>
+</div>

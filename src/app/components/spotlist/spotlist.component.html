@@ -1,0 +1,33 @@
+<table class="table">
+	<thead>
+		<tr>
+			<th>Floor</th>
+			<th>Number</th>
+			<th>Type</th>
+			<th>Paid</th>
+			<th>Maintained</th>
+			<th>Cleaned</th>
+			<th>
+				<a class="button is-primary is-small" routerLink="/createspot" title="Add Spot"><i class="fas fa-plus"></i></a>
+			</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="let spot of spots">
+			<td class="has-text-grey">{{ spot.floor }}</td>
+			<td><a routerLink="/spots/{{ spot.slug }}">{{ spot.title }}</a></td>
+			<td>{{ spot.type }}</td>
+			<td class="has-text-right">{{ spot.payments.length }}</td>
+			<td class="has-text-right">{{ spot.maintenances.length }}</td>
+			<td class="has-text-right">{{ spot.cleanings.length }}</td>
+			<td>
+				<a class="button is-primary is-small" routerLink="/spots/{{ spot.slug }}/addevent" title="Add event">
+					<i class="fas fa-plus"></i>
+				</a>
+				<a class="button is-info is-small" routerLink="/spots/{{ spot.slug }}/edit" title="Edit spot">
+					<i class="far fa-edit"></i>
+				</a>
+			</td>
+		</tr>
+	</tbody>
+</table>

@@ -1,0 +1,18 @@
+<div class="columns">
+  <div class="column is-three-quarters">
+    <h2 class="subtitle"><i class="fas fa-car"></i> Spots</h2>
+
+    <div>
+		<app-spotlist [spots] = "spots"></app-spotlist>
+    </div>
+
+  </div>
+  <div class="column">
+  	<h2 class="subtitle"><i class="far fa-calendar-alt"></i> Last events</h2>
+
+  	<div>
+  		<app-eventlist [spotevents] = "spotEvents"></app-eventlist>
+  	</div>
+
+  </div>
+</div>

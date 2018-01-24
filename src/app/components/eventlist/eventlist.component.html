@@ -1,0 +1,15 @@
+<table class="table" *ngIf="spotevents.length; else noRows">
+	<tbody>
+		<tr *ngFor="let spotevent of spotevents">
+			<td>
+				{{ spotevent.created | date: 'dd/MM/yyyy' }}
+			</td>
+			<td><a routerLink="/spots/{{ spotevent.spot }}/events/{{ spotevent.slug }}">{{ spotevent.title }}</a></td>
+			<td><button class="button is-danger is-small" (click)="removeEvent(spotevent)"><i class="far fa-trash-alt" title="Remove event"></i></button></td>
+		</tr>
+	</tbody>
+</table>
+
+<ng-template #noRows>
+	<div class="has-color-grey">No data</div>
+</ng-template>
