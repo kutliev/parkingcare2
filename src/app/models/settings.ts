@@ -1,7 +1,9 @@
+import { environment } from '../../environments/environment'
+
 export class Settings {
-	ApiEndPoint: string = "https://api.cosmicjs.com/v1/parkingcare/";
-	ApiReadKey: string = "XpAQC8ytDL2Ae6xJLAfBXu7UOF5kIs1ontNdD07Upng1Mc4pwg";
-	ApiWriteKey: string = "LKhJLh7cEeoDpGJxwAWRaahbSOOXglnet0vcr61qsdCL4FvM24";
+	ApiEndPoint: string = environment.COSMIC_API + environment.COSMIC_BUCKET + "/";
+	ApiReadKey: string = environment.COSMIC_READ_KEY;
+	ApiWriteKey: string = environment.COSMIC_WRITE_KEY;
 }
 
 export const SpotTypes = ['Vacant', 'Rent', 'Owned'];
