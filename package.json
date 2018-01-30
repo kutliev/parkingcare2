@@ -4,8 +4,8 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --port 5000",
-    "build": "ng build --prod",
+    "start": "ng serve",
+    "build": "ng build --prod $PORT",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
