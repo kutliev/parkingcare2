@@ -5,7 +5,7 @@
   "scripts": {
     "ng": "ng",
     "start": "echo START && npm install && node server.js",
-    "preinstall": "echo PREINSTALL && rm ~/.angular-cli.json && ng build --aot -prod",
+    "preinstall": "echo PREINSTALL && rm ~/.angular-cli.json",
     "postinstall": "echo POSTINSTALL && ng build --aot -prod"
   },
   "engines": {
