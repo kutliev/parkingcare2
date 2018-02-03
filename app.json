@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "dokku": {
+      "predeploy": "",
+      "postdeploy": "echo POSTDEPLOY && node server.js"
+    }
+  }
+}
