@@ -1,1 +1,1 @@
-web: node server.js
+web: echo RUN && ls -l && node server.js
