@@ -4,9 +4,9 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "npm install && node server.js",
+    "start": "ng build --aot -prod && node server.js",
     "preinstall": "",
-    "postinstall": "rm ~/.angular-cli.json && ng build --aot -prod"
+    "postinstall": ""
   },
   "engines": {
     "node": "6.11.1",
