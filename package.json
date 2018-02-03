@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "echo START && ng build --aot -prod && node server.js",
+    "start": "echo START && npm install && node server.js",
     "preinstall": "echo PREINSTALL && rm ~/.angular-cli.json && ng build --aot -prod",
     "postinstall": "echo POSTINSTALL && ng build --aot -prod"
   },
