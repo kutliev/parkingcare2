@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "npm install && ls && server.js",
+    "start": "npm install && node server.js",
     "build": "ng build",
     "preinstall": "",
     "postinstall": "rm ~/.angular-cli.json && ng build --aot -prod"
