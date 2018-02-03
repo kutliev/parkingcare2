@@ -1,3 +1,5 @@
+console.log('Server started');
+
 // server.js
 const express = require('express');
 const app = express();
@@ -6,6 +8,6 @@ const app = express();
 app.use(express.static(__dirname + '/dist'));
 // Start the app by listening on the default
 // Heroku port
-app.listen(process.env.PORT || 8088);
+app.listen(process.env.PORT || 5000);
 
-console.log('Server started');
+console.log('Server is running');
