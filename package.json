@@ -4,9 +4,9 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "echo START && npm install && node server.js",
-    "preinstall": "echo PREINSTALL && rm ~/.angular-cli.json",
-    "postinstall": "echo POSTINSTALL && NODE_ENV=production && ng build --aot --prod && ls -l && echo POSTINSTALL_DONE"
+    "start": "echo START && npm install && ng build --aot --prod && node server.js",
+    "build": "NODE_ENV=production && ng build --aot --prod && ",
+    "preinstall": "echo PREINSTALL"
   },
   "engines": {
     "node": "6.11.1",
@@ -32,22 +32,5 @@
     "express": "^4",
     "@types/node": "~6.0.60"
 
-  },
-  "devDependencies": {
-    "@angular/language-service": "^5.0.0",
-    "@types/jasmine": "~2.5.53",
-    "@types/jasminewd2": "~2.0.2",
-    "codelyzer": "^4.0.1",
-    "jasmine-core": "~2.6.2",
-    "jasmine-spec-reporter": "~4.1.0",
-    "karma": "~1.7.0",
-    "karma-chrome-launcher": "~2.1.1",
-    "karma-cli": "~1.0.1",
-    "karma-coverage-istanbul-reporter": "^1.2.1",
-    "karma-jasmine": "~1.1.0",
-    "karma-jasmine-html-reporter": "^0.2.2",
-    "protractor": "~5.1.2",
-    "ts-node": "~3.2.0",
-    "tslint": "~5.7.0"
   }
 }
