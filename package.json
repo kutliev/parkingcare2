@@ -6,7 +6,8 @@
     "ng": "ng",
     "start": "echo START && npm install && node server.js",
     "build": "NODE_ENV=production && ng build --aot --prod && ",
-    "preinstall": "echo PREINSTALL"
+    "preinstall": "echo PREINSTALL",
+    "postinstall": "ng build --aot --prod"
   },
   "engines": {
     "node": "6.11.1",
